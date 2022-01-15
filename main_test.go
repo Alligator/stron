@@ -21,7 +21,7 @@ func test(t *testing.T, src string, expected string) {
 		t.Log(err)
 		t.Fail()
 	}
-	out := ctx.fmtOutput(false)
+	out := ctx.fmtOutput(false, true)
 	compare(t, out, expected)
 }
 
