@@ -16,7 +16,13 @@ while getopts "hu" opt; do
   esac
 done
 
-shift $((OPTIND0))
+shift $((OPTIND-1))
+version=$1
+
+if [[ -z $version ]]; then
+  echo "no version given!"
+  exit 1
+fi
 
 if [[ ! -d "builds" ]]; then
   mkdir builds
