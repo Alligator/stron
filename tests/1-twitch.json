@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "44367683804",
+      "user_id": "22510310",
+      "user_login": "gamesdonequick",
+      "user_name": "GamesDoneQuick",
+      "game_id": "2120403770",
+      "game_name": "Lost Judgment",
+      "type": "live",
+      "title": "Awesome Games Done Quick 2022 Online - Benefiting Prevent Cancer Foundation - Lost Judgment",
+      "viewer_count": 84635,
+      "started_at": "2022-01-13T07:58:06Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gamesdonequick-{width}x{height}.jpg",
+      "tag_ids": [
+        "7cefbf30-4c3e-4aa7-99cd-70aabb662f27",
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+      ],
+      "is_mature": false
+    }
+  ],
+  "pagination": {}
+}

@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -23,6 +25,29 @@ func test(t *testing.T, src string, expected string) {
 	}
 	out := ctx.fmtOutput(false, true)
 	compare(t, out, expected)
+}
+
+func TestFiles(t *testing.T) {
+	files, err := filepath.Glob("tests/*.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, file := range files {
+		t.Log(file)
+
+		src, err := os.ReadFile(file)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		expected, err := os.ReadFile(strings.Replace(file, ".json", ".stron", 1))
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		test(t, string(src), string(expected))
+	}
 }
 
 func TestArray(t *testing.T)  { test(t, "[1, 2, 3]", "[] = 1\n") }

@@ -1,0 +1,14 @@
+.data[].id = "44367683804"
+.data[].user_id = "22510310"
+.data[].user_login = "gamesdonequick"
+.data[].user_name = "GamesDoneQuick"
+.data[].game_id = "2120403770"
+.data[].game_name = "Lost Judgment"
+.data[].type = "live"
+.data[].title = "Awesome Games Done Quick 2022 Online - Benefiting Prevent Cance...
+.data[].viewer_count = 84635
+.data[].started_at = "2022-01-13T07:58:06Z"
+.data[].language = "en"
+.data[].thumbnail_url = "https://static-cdn.jtvnw.net/previews-ttv/live_user_gamesdonequ...
+.data[].tag_ids[] = "7cefbf30-4c3e-4aa7-99cd-70aabb662f27"
+.data[].is_mature = false
