@@ -29,12 +29,12 @@ $ cat example.json
   ]
 }
 
-$ stron < example.json
+$ stron example.json
 .users[].name
 .users[].repos[].name
 .users[].repos[].url
 
-$ stron -v < example.json
+$ stron -v example.json
 .users[].name = "alligator"
 .users[].repos[].name = "ely"
 .users[].repos[].url = "https://github.com/alligator/ely"

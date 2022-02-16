@@ -149,7 +149,17 @@ func main() {
 	printValues := flag.Bool("v", false, "show example values")
 	flag.Parse()
 
-	d := json.NewDecoder(os.Stdin)
+	var d *json.Decoder
+	if flag.NArg() > 0 {
+		f, err := os.Open(flag.Arg(0))
+		if err != nil {
+			log.Fatal(err)
+		}
+		d = json.NewDecoder(f)
+	} else {
+		d = json.NewDecoder(os.Stdin)
+	}
+
 	ctx := newContext(d)
 	err := ctx.findPaths("")
 	if err != nil {
