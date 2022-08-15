@@ -1,8 +1,9 @@
 # stron
 
-show the structure of JSON.
+show the structure of JSON in a compact, gron-esque format.
 
-stron reads JSON from stdin and prints all the paths through it, with example values if you'd like.
+stron reads JSON from stdin or a file, and prints the distinct paths through it.
+it can print example values too, with `-v`.
 
 ```
 $ cat example.json
