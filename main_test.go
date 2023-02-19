@@ -96,3 +96,25 @@ func TestEverything(t *testing.T) {
 
 	test(t, src, expected)
 }
+
+func TestNullExampleValues(t *testing.T) {
+	src := `[
+		{
+			"alwaysNull": null,
+			"sometimesNull": null
+		},
+		{
+			"alwaysNull": null,
+			"sometimesNull": "hello"
+		},
+		{
+			"alwaysNull": null,
+			"sometimesNull": "goodbye"
+		}
+	]`
+
+	expected := "[].alwaysNull = null\n" +
+		"[].sometimesNull = \"hello\"\n"
+
+	test(t, src, expected)
+}

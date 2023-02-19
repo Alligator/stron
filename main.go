@@ -17,11 +17,14 @@ type pathEntry struct {
 
 type context struct {
 	paths []pathEntry
-	seen  map[string]bool
-	dec   *json.Decoder
-	tok   *json.Token
-	more  bool
-	err   error
+	// a path being preset in seen means we've seen it.
+	// if the value is false the example value is null, and will be replaced if
+	// we find a non-null one.
+	seen map[string]bool
+	dec  *json.Decoder
+	tok  *json.Token
+	more bool
+	err  error
 }
 
 func newContext(d *json.Decoder) context {
@@ -62,9 +65,18 @@ func (ctx *context) add(path string, exampleValue interface{}) {
 		return
 	}
 
-	if _, present := ctx.seen[path]; !present {
+	hasValue, present := ctx.seen[path]
+	if !present {
 		ctx.paths = append(ctx.paths, pathEntry{path, exampleValue})
-		ctx.seen[path] = true
+		ctx.seen[path] = exampleValue != nil
+	} else if !hasValue && exampleValue != nil {
+		for index, entry := range ctx.paths {
+			if entry.path == path {
+				ctx.paths[index] = pathEntry{entry.path, exampleValue}
+				ctx.seen[path] = true
+				break
+			}
+		}
 	}
 }
 
